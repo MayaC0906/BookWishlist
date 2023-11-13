@@ -1,5 +1,4 @@
 import { Stars } from "./Stars"
-import { svgs } from "./Svgs"
 
 export function BookPreview({ book }) {
     const bookStars = Math.round(book.rating)
@@ -10,7 +9,6 @@ export function BookPreview({ book }) {
             <input type="checkbox" checked={book.isWishlisted} />
         </header>
         <hr />
-
         <section className="book-info">
             <h3>{book.author}</h3>
             <p>{book.description}</p>
