@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { bookService } from "../services/book.service.local"
 import { useState } from "react";
 import { BookPreview } from "../cmps/BookPreview";
-import { BooksWishlist } from "../cmps/BooksWishlist";
+import { BooksWishlist } from '../cmps/BooksWishlist'
 
 
 export function BookWishlistIndex() {
@@ -30,7 +30,7 @@ export function BookWishlistIndex() {
                 <button>{'>'}</button>
             </section>
             <section className="books-wishlist">
-                <BooksWishlist />
+                <BooksWishlist books={books} />
             </section>
         </main>
     )
