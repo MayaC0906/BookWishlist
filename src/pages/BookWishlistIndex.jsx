@@ -3,6 +3,7 @@ import { bookService } from "../services/book.service.local"
 import { useState } from "react";
 import { BookPreview } from "../cmps/BookPreview";
 import { BooksWishlist } from '../cmps/BooksWishlist'
+import { SortWishlistBooks } from "../cmps/SortWishlistBooks";
 
 
 export function BookWishlistIndex() {
@@ -43,10 +44,33 @@ export function BookWishlistIndex() {
         try {
             await bookService.save(book)
             setCurrBook({ ...book })
-            setMyWishlistBooks(books.filter(book => book.isWishlisted))
+                (books.filter(book => book.isWishlisted))
         } catch (err) {
             console.log('Cannot change book wishlist', err)
         }
+    }
+
+    function sortByTitle() {
+        const sortedBooks = [...myWishlistBooks]
+        sortedBooks.sort((a, b) => {
+            const titleA = a.title.toLowerCase()
+            const titleB = b.title.toLowerCase()
+            if (titleA < titleB) return -1
+            if (titleA > titleB) return 1
+            return 0
+        })
+        setMyWishlistBooks(sortedBooks)
+    }
+
+    function sortByNumber(type) {
+        console.log(type);
+        const sortedBooks = [...myWishlistBooks]
+        sortedBooks.sort((a, b) => {
+            if (a[type] < b[type]) return -1
+            if (a[type] > b[type]) return 1
+            return 0
+        })
+        setMyWishlistBooks(sortedBooks)
     }
 
     if (!books || !books.length) return <div>Loading...</div>
@@ -58,6 +82,7 @@ export function BookWishlistIndex() {
                 <button>{'>'}</button>
             </section>
             <section className="books-wishlist">
+                <SortWishlistBooks sortByTitle={sortByTitle} sortByNumber={sortByNumber} />
                 <BooksWishlist books={books} onRemoveFromWishlist={onRemoveFromWishlist} myWishlistBooks={myWishlistBooks} />
             </section>
         </main>
