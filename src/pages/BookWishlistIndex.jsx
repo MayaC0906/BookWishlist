@@ -79,7 +79,7 @@ export function BookWishlistIndex() {
         try {
             await bookService.save(book)
             setCurrBook({ ...book })
-                (books.filter(book => book.isWishlisted))
+            setMyWishlistBooks(books.filter(book => book.isWishlisted))
         } catch (err) {
             console.log('Cannot change book wishlist', err)
         }
@@ -112,15 +112,15 @@ export function BookWishlistIndex() {
     return (
         <main>
             <section className="main-layout">
-            <section className="book-display">
-                <button className={getArrowClass('left')} onClick={() => { onChangeCurrBook('previous') }}>{svgs.leftArrow}</button>
-                <BookPreview book={currBook} onToggleBokToWishlist={onToggleBokToWishlist} />
-                <button className={getArrowClass('right')} onClick={() => { onChangeCurrBook('next') }}>{svgs.rightArrow}</button>
-            </section >
-            <section className="books-wishlist">
-                <SortWishlistBooks sortByTitle={sortByTitle} sortByNumber={sortByNumber} />
-                <BooksWishlist books={books} onRemoveFromWishlist={onRemoveFromWishlist} myWishlistBooks={myWishlistBooks} />
-            </section>
+                <section className="book-display">
+                    <button className={getArrowClass('left')} onClick={() => { onChangeCurrBook('previous') }}>{svgs.leftArrow}</button>
+                    <BookPreview book={currBook} onToggleBokToWishlist={onToggleBokToWishlist} />
+                    <button className={getArrowClass('right')} onClick={() => { onChangeCurrBook('next') }}>{svgs.rightArrow}</button>
+                </section >
+                <section className="books-wishlist">
+                    <SortWishlistBooks sortByTitle={sortByTitle} sortByNumber={sortByNumber} />
+                    <BooksWishlist books={books} onRemoveFromWishlist={onRemoveFromWishlist} myWishlistBooks={myWishlistBooks} />
+                </section>
             </section>
         </main >
     )
