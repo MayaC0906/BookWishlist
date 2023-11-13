@@ -1,8 +1,13 @@
+import { useEffect, useState } from "react"
 import { Stars } from "./Stars"
 
 export function BookPreview({ book }) {
-    const bookStars = Math.round(book.rating)
+    const [bookStars, setBookStars] = useState(Math.round(book.rating))
 
+    useEffect (()=>{
+        setBookStars(Math.round(book.rating))
+    },[book])
+    
     return <section className="book-Preview">
         <header>
             <h2>{book.title}</h2>
