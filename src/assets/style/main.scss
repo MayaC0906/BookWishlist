@@ -1,0 +1,27 @@
+/* Setup */
+@import './setup/_variables.scss';
+@import './setup/typography.scss';
+@import './setup/_functions.scss';
+@import './setup/mixins.scss';
+
+/* Base */
+@import './base/_base.scss';
+@import './base/helpers.scss';
+@import './base/layout.scss';
+@import './base/forms.scss';
+
+/* Components */
+@import './cmps/AppHeader.scss';
+@import './cmps/HomePage.scss';
+@import './cmps/_About.scss';
+@import './cmps/_Dashboard.scss';
+@import './cmps/_LoginSignup.scss';
+
+
+@import './cmps/ToyFilter.scss';
+@import './cmps/ToyList.scss';
+@import './cmps/ToyDetails.scss';
+@import './cmps/_ToyEdit.scss';
+@import './cmps/Stores.scss';
+
+

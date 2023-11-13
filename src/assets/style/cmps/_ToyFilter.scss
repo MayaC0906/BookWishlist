@@ -1,0 +1,55 @@
+.toy-filter {
+    margin: 40px auto;
+    padding: 1em;
+    border: 1px solid $clr6;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px lightgrey;
+    min-width: fit-content;
+    max-width: 400px;
+    position: relative;
+    background-color: $clr3;
+
+    .add-toy-btn {
+        padding: 10px;
+        position: absolute;
+        top: -30px;
+        left: 30px;
+        background-color: lighten($clr2, 0.8%);
+        color: $clr6;
+        border: 1px solid $clr6 ;
+        border-radius: 10px;
+
+        &:hover {
+            background-color: $clr4;
+            color: white;
+
+        }
+    }
+
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        select {
+            margin-inline-start: 5px;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $clr4;
+            }
+        }
+        
+        .filter {
+            height: rem(40px);
+            margin-inline-end: 5px;
+            border-radius: 10px;
+            padding: 5px;
+        }
+    }
+}
+
+// .toy-filter .filter,
+// .search-key {
+
+// }

@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+html {}
+
+body {
+  margin: 0;
+  color: var(--gray3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: .5em 0 .5em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+
+
+/* Dont stretch my Media */
+img,
+embed,
+video,
+object {
+  max-width: 100%
+}
+
+/* Simple and useful CSS Debugging Technique */
+.debug * {
+  outline: 1px solid gold
+}
+
+.reviews {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+
+  h2 {
+    margin-inline-start: 15px;
+    color: $clr6;
+  }
+
+  h4 {
+    margin-inline-start: 15px;
+  }
+
+  .review {
+    border-bottom: 1px solid $clr2;
+    margin-inline-start: 15px;
+
+    h4 {
+      color: $clr5;
+    }
+
+    h3 {
+      color: $clr6;
+    }
+
+
+    .user {
+      display: flex;
+
+      h5 {
+        color: $clr5;
+      }
+
+      img {
+        height: 40px;
+        width: 40px;
+        margin: 0 10px 10px 0;
+        border-radius: 50%;
+        border: 1px solid $clr5;
+      }
+    }
+  }
+}

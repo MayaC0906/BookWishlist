@@ -1,0 +1,57 @@
+.app-header {
+  height: rem(120px);
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  box-shadow: 0px 3px 8px lightgrey;
+
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: rem(150px);
+      margin-inline-start: rem(20px);
+    }
+
+    nav {
+      min-width: rem(350px);
+      max-width: 40%;
+
+      .nav-btn {
+        padding: 7px;
+        color: $clr4;
+
+
+        &.active {
+          text-decoration: underline;
+        }
+
+        &:hover {
+          border-radius: 8px;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 1px solid $clr6
+  }
+  h4 {
+    color: $clr6;
+    margin-inline-end: 10px;
+  }
+
+}
+}
