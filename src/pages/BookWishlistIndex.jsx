@@ -20,6 +20,8 @@ export function BookWishlistIndex() {
             console.log('Cannot load books', err);
         }
     }
+
+    if (!books || !books.length) return <div>Loading...</div>
     return (
         <main>
             <section className="book-display">
