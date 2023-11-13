@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Stars } from "./Stars"
 
 export function BookPreview({ book, onToggleBokToWishlist }) {
-    const bookStars = Math.round(book.rating)
+    const [bookStars, setBookStars] = useState(Math.round(book.rating))
     console.log(book);
 
     useEffect (()=>{

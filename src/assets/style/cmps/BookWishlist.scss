@@ -8,12 +8,17 @@
         align-items: center;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         height: 55px;
-
-        div {
+        background-color: #fff;
+        .color {
             width: 10px;
             height: 100%;
         }
-
+        .book {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding-right: 5px;
         h2 {
             padding-inline: 8px;
             font-size: 18px;
@@ -23,6 +28,8 @@
         }
 
         button {
+            cursor: pointer;
+            border-radius: 3px;
             width: 30px;
             height: 30px;
             display: flex;
@@ -32,7 +39,7 @@
             padding: 0;
             background: none;
             background-color: gray;
-
+        }
             svg {
                 width: 15px;
                 height: 15px;

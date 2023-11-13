@@ -1,3 +1,15 @@
-
+main {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(212, 212, 212);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .main-layout {
+        display: flex;
+        align-items: top;
+        justify-content: center;
+    }
+}
 
 

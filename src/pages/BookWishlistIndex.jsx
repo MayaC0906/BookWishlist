@@ -87,6 +87,7 @@ export function BookWishlistIndex() {
     if (!books || !books.length) return <div>Loading...</div>
     return (
         <main>
+            <section className="main-layout">
             <section className="book-display">
                 <button className={getArrowClass('left')} onClick={() => { onChangeCurrBook('previous') }}>{svgs.leftArrow}</button>
                 <BookPreview book={currBook} onToggleBokToWishlist={onToggleBokToWishlist} />
@@ -94,6 +95,7 @@ export function BookWishlistIndex() {
             </section >
             <section className="books-wishlist">
                 <BooksWishlist books={books} onRemoveFromWishlist={onRemoveFromWishlist} myWishlistBooks={myWishlistBooks} />
+            </section>
             </section>
         </main >
     )
