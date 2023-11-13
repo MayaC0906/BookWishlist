@@ -1,12 +1,13 @@
 import { Stars } from "./Stars"
 
-export function BookPreview({ book }) {
+export function BookPreview({ book, onToggleBokToWishlist }) {
     const bookStars = Math.round(book.rating)
+    console.log(book);
 
     return <section className="book-Preview">
         <header>
             <h2>{book.title}</h2>
-            <input type="checkbox" checked={book.isWishlisted} />
+            <input type="checkbox" checked={book.isWishlisted} onClick={() => onToggleBokToWishlist(book.id)} />
         </header>
         <hr />
         <section className="book-info">

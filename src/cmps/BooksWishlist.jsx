@@ -1,23 +1,15 @@
-import { useEffect, useState } from "react"
 import { svgs } from "./Svgs"
 
-export function BooksWishlist({ books }) {
-    const [myWishlistBooks, setMyWishlistBooks] = useState([])
-
-    useEffect(() => {
-        const wishlistBooks = books.filter(book => book.isWishlisted)
-        setMyWishlistBooks(wishlistBooks)
-    }, [])
-
-    console.log(myWishlistBooks)
+export function BooksWishlist({ onRemoveFromWishlist, myWishlistBooks }) {
 
     return (
         <>
+            {console.log('hey')}
             {myWishlistBooks.map(myWishlistBook =>
-                <section className="my-wishlist">
+                <section className="my-wishlist" key={myWishlistBook.id}>
                     <div className="color" style={{ backgroundColor: 'orange' }}></div >
                     <h2>{myWishlistBook.title}</h2>
-                    <button>{svgs.close}</button>
+                    <button onClick={() => onRemoveFromWishlist(myWishlistBook.id)}>{svgs.close}</button>
                 </section >
             )
             }

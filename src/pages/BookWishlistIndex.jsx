@@ -7,7 +7,8 @@ import { BooksWishlist } from '../cmps/BooksWishlist'
 
 export function BookWishlistIndex() {
     const [books, setBooks] = useState(null)
-    const [currBook, setCurrBook] = useState(null) 
+    const [currBook, setCurrBook] = useState(null)
+    const [myWishlistBooks, setMyWishlistBooks] = useState([]);
 
     useEffect(() => {
         onLoadBooks()
@@ -18,8 +19,33 @@ export function BookWishlistIndex() {
             const books = await bookService.query()
             setBooks(books)
             setCurrBook(books[0])
+            setMyWishlistBooks(books.filter(book => book.isWishlisted))
         } catch (err) {
             console.log('Cannot load books', err);
+        }
+    }
+
+    async function onRemoveFromWishlist(bookId) {
+        const book = books.find(book => book.id === bookId)
+        book.isWishlisted = false
+        try {
+            await bookService.save(book)
+            if (currBook.id === book.id) setCurrBook({ ...book })
+            setMyWishlistBooks(books.filter(book => book.isWishlisted))
+        } catch (err) {
+            console.log('Cannot remove book', err)
+        }
+    }
+
+    async function onToggleBokToWishlist(bookId) {
+        const book = books.find(book => book.id === bookId)
+        book.isWishlisted = !book.isWishlisted
+        try {
+            await bookService.save(book)
+            setCurrBook({ ...book })
+            setMyWishlistBooks(books.filter(book => book.isWishlisted))
+        } catch (err) {
+            console.log('Cannot change book wishlist', err)
         }
     }
 
@@ -28,11 +54,11 @@ export function BookWishlistIndex() {
         <main>
             <section className="book-display">
                 <button>{'<'}</button>
-                <BookPreview book={currBook}/>
+                <BookPreview book={currBook} onToggleBokToWishlist={onToggleBokToWishlist} />
                 <button>{'>'}</button>
             </section>
             <section className="books-wishlist">
-                <BooksWishlist books={books} />
+                <BooksWishlist books={books} onRemoveFromWishlist={onRemoveFromWishlist} myWishlistBooks={myWishlistBooks} />
             </section>
         </main>
     )
