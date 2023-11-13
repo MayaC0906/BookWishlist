@@ -1,10 +1,10 @@
 import { svgs } from "./Svgs"
 
 export function BooksWishlist({ onRemoveFromWishlist, myWishlistBooks }) {
+    console.log(myWishlistBooks);
 
     return (
         <>
-            {console.log('hey')}
             {myWishlistBooks.map(myWishlistBook =>
                 <section className="my-wishlist" key={myWishlistBook.id}>
                     <div className="color" style={{ backgroundColor: 'orange' }}></div >
