@@ -7,7 +7,8 @@ import { BooksWishlist } from '../cmps/BooksWishlist'
 
 export function BookWishlistIndex() {
     const [books, setBooks] = useState(null)
-    console.log(books);
+    const [currBook, setCurrBook] = useState(null) 
+
     useEffect(() => {
         onLoadBooks()
     }, [])
@@ -16,6 +17,7 @@ export function BookWishlistIndex() {
         try {
             const books = await bookService.query()
             setBooks(books)
+            setCurrBook(books[0])
         } catch (err) {
             console.log('Cannot load books', err);
         }
@@ -26,7 +28,7 @@ export function BookWishlistIndex() {
         <main>
             <section className="book-display">
                 <button>{'<'}</button>
-                <BookPreview />
+                <BookPreview book={currBook}/>
                 <button>{'>'}</button>
             </section>
             <section className="books-wishlist">
